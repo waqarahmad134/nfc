@@ -153,6 +153,23 @@ trait QueriesRelationships
     }
 
     /**
+     * Add a relationship count / exists condition to the query with where clauses.
+     *
+     * Also load the relationship with same condition.
+     *
+     * @param  string  $relation
+     * @param  \Closure|null  $callback
+     * @param  string  $operator
+     * @param  int  $count
+     * @return \Illuminate\Database\Eloquent\Builder|static
+     */
+    public function withWhereHas($relation, Closure $callback = null, $operator = '>=', $count = 1)
+    {
+        return $this->whereHas(Str::before($relation, ':'), $callback, $operator, $count)
+            ->with($callback ? [$relation => fn ($query) => $callback($query)] : $relation);
+    }
+
+    /**
      * Add a relationship count / exists condition to the query with where clauses and an "or".
      *
      * @param  string  $relation
@@ -357,7 +374,7 @@ trait QueriesRelationships
      * Add a basic where clause to a relationship query.
      *
      * @param  string  $relation
-     * @param  \Closure|string|array|\Illuminate\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -365,7 +382,11 @@ trait QueriesRelationships
     public function whereRelation($relation, $column, $operator = null, $value = null)
     {
         return $this->whereHas($relation, function ($query) use ($column, $operator, $value) {
-            $query->where($column, $operator, $value);
+            if ($column instanceof Closure) {
+                $column($query);
+            } else {
+                $query->where($column, $operator, $value);
+            }
         });
     }
 
@@ -373,7 +394,7 @@ trait QueriesRelationships
      * Add an "or where" clause to a relationship query.
      *
      * @param  string  $relation
-     * @param  \Closure|string|array|\Illuminate\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -381,7 +402,11 @@ trait QueriesRelationships
     public function orWhereRelation($relation, $column, $operator = null, $value = null)
     {
         return $this->orWhereHas($relation, function ($query) use ($column, $operator, $value) {
-            $query->where($column, $operator, $value);
+            if ($column instanceof Closure) {
+                $column($query);
+            } else {
+                $query->where($column, $operator, $value);
+            }
         });
     }
 
@@ -390,7 +415,7 @@ trait QueriesRelationships
      *
      * @param  \Illuminate\Database\Eloquent\Relations\MorphTo|string  $relation
      * @param  string|array  $types
-     * @param  \Closure|string|array|\Illuminate\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -407,7 +432,7 @@ trait QueriesRelationships
      *
      * @param  \Illuminate\Database\Eloquent\Relations\MorphTo|string  $relation
      * @param  string|array  $types
-     * @param  \Closure|string|array|\Illuminate\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -423,13 +448,17 @@ trait QueriesRelationships
      * Add a morph-to relationship condition to the query.
      *
      * @param  \Illuminate\Database\Eloquent\Relations\MorphTo|string  $relation
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
      * @return \Illuminate\Database\Eloquent\Builder|static
      */
     public function whereMorphedTo($relation, $model, $boolean = 'and')
     {
         if (is_string($relation)) {
             $relation = $this->getRelationWithoutConstraints($relation);
+        }
+
+        if (is_null($model)) {
+            return $this->whereNull($relation->getMorphType(), $boolean);
         }
 
         if (is_string($model)) {
@@ -449,15 +478,56 @@ trait QueriesRelationships
     }
 
     /**
-     * Add a morph-to relationship condition to the query with an "or where" clause.
+     * Add a not morph-to relationship condition to the query.
      *
      * @param  \Illuminate\Database\Eloquent\Relations\MorphTo|string  $relation
      * @param  \Illuminate\Database\Eloquent\Model|string  $model
      * @return \Illuminate\Database\Eloquent\Builder|static
      */
+    public function whereNotMorphedTo($relation, $model, $boolean = 'and')
+    {
+        if (is_string($relation)) {
+            $relation = $this->getRelationWithoutConstraints($relation);
+        }
+
+        if (is_string($model)) {
+            $morphMap = Relation::morphMap();
+
+            if (! empty($morphMap) && in_array($model, $morphMap)) {
+                $model = array_search($model, $morphMap, true);
+            }
+
+            return $this->whereNot($relation->getMorphType(), '<=>', $model, $boolean);
+        }
+
+        return $this->whereNot(function ($query) use ($relation, $model) {
+            $query->where($relation->getMorphType(), '<=>', $model->getMorphClass())
+                ->where($relation->getForeignKeyName(), '<=>', $model->getKey());
+        }, null, null, $boolean);
+    }
+
+    /**
+     * Add a morph-to relationship condition to the query with an "or where" clause.
+     *
+     * @param  \Illuminate\Database\Eloquent\Relations\MorphTo|string  $relation
+     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @return \Illuminate\Database\Eloquent\Builder|static
+     */
     public function orWhereMorphedTo($relation, $model)
     {
         return $this->whereMorphedTo($relation, $model, 'or');
+    }
+
+    /**
+     * Add a not morph-to relationship condition to the query with an "or where" clause.
+     *
+     * @param  \Illuminate\Database\Eloquent\Relations\MorphTo|string  $relation
+     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @return \Illuminate\Database\Eloquent\Builder|static
+     */
+    public function orWhereNotMorphedTo($relation, $model)
+    {
+        return $this->whereNotMorphedTo($relation, $model, 'or');
     }
 
     /**
@@ -490,7 +560,7 @@ trait QueriesRelationships
 
         try {
             $relationship = $this->model->{$relationshipName}();
-        } catch (BadMethodCallException $exception) {
+        } catch (BadMethodCallException) {
             throw RelationNotFoundException::make($this->model, $relationshipName);
         }
 
@@ -556,9 +626,7 @@ trait QueriesRelationships
             $relation = $this->getRelationWithoutConstraints($name);
 
             if ($function) {
-                $hashedColumn = $this->getQuery()->from === $relation->getQuery()->getQuery()->from
-                                            ? "{$relation->getRelationCountHash(false)}.$column"
-                                            : $column;
+                $hashedColumn = $this->getRelationHashedColumn($column, $relation);
 
                 $wrappedColumn = $this->getQuery()->getGrammar()->wrap(
                     $column === '*' ? $column : $relation->getRelated()->qualifyColumn($hashedColumn)
@@ -612,6 +680,24 @@ trait QueriesRelationships
         }
 
         return $this;
+    }
+
+    /**
+     * Get the relation hashed column name for the given column and relation.
+     *
+     * @param  string  $column
+     * @param  \Illuminate\Database\Eloquent\Relations\Relationship  $relation
+     * @return string
+     */
+    protected function getRelationHashedColumn($column, $relation)
+    {
+        if (str_contains($column, '.')) {
+            return $column;
+        }
+
+        return $this->getQuery()->from === $relation->getQuery()->getQuery()->from
+            ? "{$relation->getRelationCountHash(false)}.$column"
+            : $column;
     }
 
     /**
@@ -713,14 +799,40 @@ trait QueriesRelationships
     {
         $whereBindings = $from->getQuery()->getRawBindings()['where'] ?? [];
 
+        $wheres = $from->getQuery()->from !== $this->getQuery()->from
+            ? $this->requalifyWhereTables(
+                $from->getQuery()->wheres,
+                $from->getQuery()->from,
+                $this->getModel()->getTable()
+            ) : $from->getQuery()->wheres;
+
         // Here we have some other query that we want to merge the where constraints from. We will
         // copy over any where constraints on the query as well as remove any global scopes the
         // query might have removed. Then we will return ourselves with the finished merging.
         return $this->withoutGlobalScopes(
             $from->removedScopes()
         )->mergeWheres(
-            $from->getQuery()->wheres, $whereBindings
+            $wheres, $whereBindings
         );
+    }
+
+    /**
+     * Updates the table name for any columns with a new qualified name.
+     *
+     * @param  array  $wheres
+     * @param  string  $from
+     * @param  string  $to
+     * @return array
+     */
+    protected function requalifyWhereTables(array $wheres, string $from, string $to): array
+    {
+        return collect($wheres)->map(function ($where) use ($from, $to) {
+            return collect($where)->map(function ($value) use ($from, $to) {
+                return is_string($value) && str_starts_with($value, $from.'.')
+                    ? $to.'.'.Str::afterLast($value, '.')
+                    : $value;
+            });
+        })->toArray();
     }
 
     /**

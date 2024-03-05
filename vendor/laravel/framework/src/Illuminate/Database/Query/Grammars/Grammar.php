@@ -36,6 +36,7 @@ class Grammar extends BaseGrammar
         'aggregate',
         'columns',
         'from',
+        'indexHint',
         'joins',
         'wheres',
         'groups',
@@ -503,7 +504,7 @@ class Grammar extends BaseGrammar
         // Here we will calculate what portion of the string we need to remove. If this
         // is a join clause query, we need to remove the "on" portion of the SQL and
         // if it is a normal query we need to take the leading "where" of queries.
-        $offset = $query instanceof JoinClause ? 3 : 6;
+        $offset = $where['query'] instanceof JoinClause ? 3 : 6;
 
         return '('.substr($this->compileWheres($where['query']), $offset).')';
     }
@@ -619,7 +620,7 @@ class Grammar extends BaseGrammar
      */
     public function prepareBindingForJsonContains($binding)
     {
-        return json_encode($binding);
+        return json_encode($binding, JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -683,6 +684,17 @@ class Grammar extends BaseGrammar
     }
 
     /**
+     * Compile a "JSON value cast" statement into SQL.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function compileJsonValueCast($value)
+    {
+        return $value;
+    }
+
+    /**
      * Compile a "where fulltext" clause.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -692,6 +704,18 @@ class Grammar extends BaseGrammar
     public function whereFullText(Builder $query, $where)
     {
         throw new RuntimeException('This database engine does not support fulltext search operations.');
+    }
+
+    /**
+     * Compile a clause based on an expression.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  array  $where
+     * @return string
+     */
+    public function whereExpression(Builder $query, $where)
+    {
+        return $where['column']->getValue($this);
     }
 
     /**
@@ -740,6 +764,8 @@ class Grammar extends BaseGrammar
             return $this->compileHavingNotNull($having);
         } elseif ($having['type'] === 'bit') {
             return $this->compileHavingBit($having);
+        } elseif ($having['type'] === 'Expression') {
+            return $this->compileHavingExpression($having);
         } elseif ($having['type'] === 'Nested') {
             return $this->compileNestedHavings($having);
         }
@@ -823,6 +849,17 @@ class Grammar extends BaseGrammar
     }
 
     /**
+     * Compile a having clause involving an expression.
+     *
+     * @param  array  $having
+     * @return string
+     */
+    protected function compileHavingExpression($having)
+    {
+        return $having['column']->getValue($this);
+    }
+
+    /**
      * Compile a nested having clause.
      *
      * @param  array  $having
@@ -866,7 +903,7 @@ class Grammar extends BaseGrammar
     /**
      * Compile the random statement into SQL.
      *
-     * @param  string  $seed
+     * @param  string|int  $seed
      * @return string
      */
     public function compileRandom($seed)
@@ -1050,7 +1087,13 @@ class Grammar extends BaseGrammar
      */
     public function compileInsertUsing(Builder $query, array $columns, string $sql)
     {
-        return "insert into {$this->wrapTable($query->from)} ({$this->columnize($columns)}) $sql";
+        $table = $this->wrapTable($query->from);
+
+        if (empty($columns) || $columns === ['*']) {
+            return "insert into {$table} $sql";
+        }
+
+        return "insert into {$table} ({$this->columnize($columns)}) $sql";
     }
 
     /**

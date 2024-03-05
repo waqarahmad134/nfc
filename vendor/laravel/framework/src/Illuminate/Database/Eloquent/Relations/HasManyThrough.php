@@ -82,6 +82,24 @@ class HasManyThrough extends Relation
     }
 
     /**
+     * Convert the relationship to a "has one through" relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOneThrough
+     */
+    public function one()
+    {
+        return HasOneThrough::noConstraints(fn () => new HasOneThrough(
+            $this->getQuery(),
+            $this->farParent,
+            $this->throughParent,
+            $this->getFirstKeyName(),
+            $this->secondKey,
+            $this->getLocalKeyName(),
+            $this->getSecondLocalKeyName(),
+        ));
+    }
+
+    /**
      * Set the base constraints on the relation query.
      *
      * @return void
@@ -160,8 +178,10 @@ class HasManyThrough extends Relation
     {
         $whereIn = $this->whereInMethod($this->farParent, $this->localKey);
 
-        $this->query->{$whereIn}(
-            $this->getQualifiedFirstKeyName(), $this->getKeys($models, $this->localKey)
+        $this->whereInEager(
+            $whereIn,
+            $this->getQualifiedFirstKeyName(),
+            $this->getKeys($models, $this->localKey)
         );
     }
 
@@ -389,6 +409,37 @@ class HasManyThrough extends Relation
     }
 
     /**
+     * Find a related model by its primary key or call a callback.
+     *
+     * @param  mixed  $id
+     * @param  \Closure|array  $columns
+     * @param  \Closure|null  $callback
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|mixed
+     */
+    public function findOr($id, $columns = ['*'], Closure $callback = null)
+    {
+        if ($columns instanceof Closure) {
+            $callback = $columns;
+
+            $columns = ['*'];
+        }
+
+        $result = $this->find($id, $columns);
+
+        $id = $id instanceof Arrayable ? $id->toArray() : $id;
+
+        if (is_array($id)) {
+            if (count($result) === count(array_unique($id))) {
+                return $result;
+            }
+        } elseif (! is_null($result)) {
+            return $result;
+        }
+
+        return $callback();
+    }
+
+    /**
      * Get the results of the relationship.
      *
      * @return mixed
@@ -518,7 +569,7 @@ class HasManyThrough extends Relation
     /**
      * Get a generator for the given query.
      *
-     * @return \Generator
+     * @return \Illuminate\Support\LazyCollection
      */
     public function cursor()
     {

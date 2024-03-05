@@ -207,9 +207,15 @@ class Validator implements ValidatorContract
         'Declined',
         'DeclinedIf',
         'Filled',
+        'Missing',
+        'MissingIf',
+        'MissingUnless',
+        'MissingWith',
+        'MissingWithAll',
         'Present',
         'Required',
         'RequiredIf',
+        'RequiredIfAccepted',
         'RequiredUnless',
         'RequiredWith',
         'RequiredWithAll',
@@ -240,6 +246,7 @@ class Validator implements ValidatorContract
         'AcceptedIf',
         'DeclinedIf',
         'RequiredIf',
+        'RequiredIfAccepted',
         'RequiredUnless',
         'RequiredWith',
         'RequiredWithAll',
@@ -272,7 +279,7 @@ class Validator implements ValidatorContract
      *
      * @var string[]
      */
-    protected $numericRules = ['Numeric', 'Integer'];
+    protected $numericRules = ['Numeric', 'Integer', 'Decimal'];
 
     /**
      * The current placeholder for dots in rule keys.
@@ -295,11 +302,11 @@ class Validator implements ValidatorContract
      * @param  array  $data
      * @param  array  $rules
      * @param  array  $messages
-     * @param  array  $customAttributes
+     * @param  array  $attributes
      * @return void
      */
     public function __construct(Translator $translator, array $data, array $rules,
-                                array $messages = [], array $customAttributes = [])
+                                array $messages = [], array $attributes = [])
     {
         $this->dotPlaceholder = Str::random();
 
@@ -307,7 +314,7 @@ class Validator implements ValidatorContract
         $this->translator = $translator;
         $this->customMessages = $messages;
         $this->data = $this->parseData($data);
-        $this->customAttributes = $customAttributes;
+        $this->customAttributes = $attributes;
 
         $this->setRules($rules);
     }
@@ -376,14 +383,20 @@ class Validator implements ValidatorContract
     /**
      * Add an after validation callback.
      *
-     * @param  callable|string  $callback
+     * @param  callable|array|string  $callback
      * @return $this
      */
     public function after($callback)
     {
-        $this->after[] = function () use ($callback) {
-            return $callback($this);
-        };
+        if (is_array($callback) && ! is_callable($callback)) {
+            foreach ($callback as $rule) {
+                $this->after(method_exists($rule, 'after') ? $rule->after(...) : $rule);
+            }
+
+            return $this;
+        }
+
+        $this->after[] = fn () => $callback($this);
 
         return $this;
     }
@@ -812,15 +825,21 @@ class Validator implements ValidatorContract
         }
 
         if (! $rule->passes($attribute, $value)) {
-            $this->failedRules[$attribute][get_class($rule)] = [];
+            $ruleClass = $rule instanceof InvokableValidationRule ?
+                get_class($rule->invokable()) :
+                get_class($rule);
 
-            $messages = $this->getFromLocalArray($attribute, get_class($rule)) ?? $rule->message();
+            $this->failedRules[$attribute][$ruleClass] = [];
 
-            $messages = $messages ? (array) $messages : [get_class($rule)];
+            $messages = $this->getFromLocalArray($attribute, $ruleClass) ?? $rule->message();
 
-            foreach ($messages as $message) {
-                $this->messages->add($attribute, $this->makeReplacements(
-                    $message, $attribute, get_class($rule), []
+            $messages = $messages ? (array) $messages : [$ruleClass];
+
+            foreach ($messages as $key => $message) {
+                $key = is_string($key) ? $key : $attribute;
+
+                $this->messages->add($key, $this->makeReplacements(
+                    $message, $key, $ruleClass, []
                 ));
             }
         }
@@ -867,18 +886,16 @@ class Validator implements ValidatorContract
             $this->passes();
         }
 
-        $attribute = str_replace(
-            [$this->dotPlaceholder, '__asterisk__'],
-            ['.', '*'],
-            $attribute
-        );
+        $attributeWithPlaceholders = $attribute;
+
+        $attribute = $this->replacePlaceholderInString($attribute);
 
         if (in_array($rule, $this->excludeRules)) {
             return $this->excludeAttribute($attribute);
         }
 
         $this->messages->add($attribute, $this->makeReplacements(
-            $this->getMessage($attribute, $rule), $attribute, $rule, $parameters
+            $this->getMessage($attributeWithPlaceholders, $rule), $attribute, $rule, $parameters
         ));
 
         $this->failedRules[$attribute][$rule] = $parameters;
@@ -1078,6 +1095,18 @@ class Validator implements ValidatorContract
     }
 
     /**
+     * Set the value of a given attribute.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @return void
+     */
+    public function setValue($attribute, $value)
+    {
+        Arr::set($this->data, $attribute, $value);
+    }
+
+    /**
      * Get the validation rules.
      *
      * @return array
@@ -1085,6 +1114,20 @@ class Validator implements ValidatorContract
     public function getRules()
     {
         return $this->rules;
+    }
+
+    /**
+     * Get the validation rules with key placeholders removed.
+     *
+     * @return array
+     */
+    public function getRulesWithoutPlaceholders()
+    {
+        return collect($this->rules)
+            ->mapWithKeys(fn ($value, $key) => [
+                str_replace($this->dotPlaceholder, '\\.', $key) => $value,
+            ])
+            ->all();
     }
 
     /**
@@ -1335,12 +1378,12 @@ class Validator implements ValidatorContract
     /**
      * Add custom attributes to the validator.
      *
-     * @param  array  $customAttributes
+     * @param  array  $attributes
      * @return $this
      */
-    public function addCustomAttributes(array $customAttributes)
+    public function addCustomAttributes(array $attributes)
     {
-        $this->customAttributes = array_merge($this->customAttributes, $customAttributes);
+        $this->customAttributes = array_merge($this->customAttributes, $attributes);
 
         return $this;
     }
