@@ -129,25 +129,11 @@ use App\Models\Faq;
        Route::get('admin_email', [App\Http\Controllers\AdminController::class,'admin_email'])->name('admin_email');
        Route::post('admin_email', [App\Http\Controllers\AdminController::class,'admin_email_post'])->name('admin_email_post');
        Route::post('send_memo', [App\Http\Controllers\AdminController::class,'send_memo'])->name('send_memo');
+    //    Route::post('send_memo', [App\Http\Controllers\AdminController::class,'send_memo'])->name('send_memo');
     }); 
     
    });
    
-   
   Route::post('send_message', [App\Http\Controllers\UserController::class,'send_message'])->name('send_message');
 
 //   Route::post('forgot_password', [App\Http\Controllers\UserController::class,'forgot_password'])->name('forgot_password');
-
-      
- 
-    
-
-
-
-
-
-
-
-
-
-
