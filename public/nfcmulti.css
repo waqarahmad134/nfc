@@ -101,7 +101,7 @@ a {
 .card-header {
     position: relative;
     text-align: center;
-    margin-top: -3rem;
+    margin-top: -4rem;
     
 }
 
@@ -135,7 +135,7 @@ a {
 
 body {
     height: 100vh;
-    background: #00072d !important;
+    background: #172b4d !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Quicksand', sans-serif;

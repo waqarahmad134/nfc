@@ -1,0 +1,20 @@
+[07-Feb-2023 09:31:09 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[07-Feb-2023 09:31:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[07-Feb-2023 09:34:51 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[07-Feb-2023 09:34:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[07-Feb-2023 09:34:52 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[07-Feb-2023 09:34:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[20-Mar-2023 07:52:18 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47
+[20-Mar-2023 07:52:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/public/../bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/public/index.php on line 47

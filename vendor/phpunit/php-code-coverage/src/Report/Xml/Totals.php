@@ -12,19 +12,42 @@ namespace SebastianBergmann\CodeCoverage\Report\Xml;
 use function sprintf;
 use DOMElement;
 use DOMNode;
-use SebastianBergmann\CodeCoverage\Util\Percentage;
+use SebastianBergmann\CodeCoverage\Percentage;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for phpunit/php-code-coverage
  */
 final class Totals
 {
-    private readonly DOMNode $container;
-    private readonly DOMElement $linesNode;
-    private readonly DOMElement $methodsNode;
-    private readonly DOMElement $functionsNode;
-    private readonly DOMElement $classesNode;
-    private readonly DOMElement $traitsNode;
+    /**
+     * @var DOMNode
+     */
+    private $container;
+
+    /**
+     * @var DOMElement
+     */
+    private $linesNode;
+
+    /**
+     * @var DOMElement
+     */
+    private $methodsNode;
+
+    /**
+     * @var DOMElement
+     */
+    private $functionsNode;
+
+    /**
+     * @var DOMElement
+     */
+    private $classesNode;
+
+    /**
+     * @var DOMElement
+     */
+    private $traitsNode;
 
     public function __construct(DOMElement $container)
     {

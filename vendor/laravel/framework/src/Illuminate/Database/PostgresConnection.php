@@ -9,31 +9,34 @@ use Illuminate\Database\Schema\Grammars\PostgresGrammar as SchemaGrammar;
 use Illuminate\Database\Schema\PostgresBuilder;
 use Illuminate\Database\Schema\PostgresSchemaState;
 use Illuminate\Filesystem\Filesystem;
+use PDO;
 
 class PostgresConnection extends Connection
 {
     /**
-     * Escape a binary value for safe SQL embedding.
+     * Bind values to their parameters in the given statement.
      *
-     * @param  string  $value
-     * @return string
+     * @param  \PDOStatement  $statement
+     * @param  array  $bindings
+     * @return void
      */
-    protected function escapeBinary($value)
+    public function bindValues($statement, $bindings)
     {
-        $hex = bin2hex($value);
+        foreach ($bindings as $key => $value) {
+            if (is_int($value)) {
+                $pdoParam = PDO::PARAM_INT;
+            } elseif (is_resource($value)) {
+                $pdoParam = PDO::PARAM_LOB;
+            } else {
+                $pdoParam = PDO::PARAM_STR;
+            }
 
-        return "'\x{$hex}'::bytea";
-    }
-
-    /**
-     * Escape a bool value for safe SQL embedding.
-     *
-     * @param  bool  $value
-     * @return string
-     */
-    protected function escapeBool($value)
-    {
-        return $value ? 'true' : 'false';
+            $statement->bindValue(
+                is_string($key) ? $key : $key + 1,
+                $value,
+                $pdoParam
+            );
+        }
     }
 
     /**
@@ -43,9 +46,7 @@ class PostgresConnection extends Connection
      */
     protected function getDefaultQueryGrammar()
     {
-        ($grammar = new QueryGrammar)->setConnection($this);
-
-        return $this->withTablePrefix($grammar);
+        return $this->withTablePrefix(new QueryGrammar);
     }
 
     /**
@@ -69,9 +70,7 @@ class PostgresConnection extends Connection
      */
     protected function getDefaultSchemaGrammar()
     {
-        ($grammar = new SchemaGrammar)->setConnection($this);
-
-        return $this->withTablePrefix($grammar);
+        return $this->withTablePrefix(new SchemaGrammar);
     }
 
     /**

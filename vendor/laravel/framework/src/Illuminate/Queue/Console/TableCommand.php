@@ -5,9 +5,7 @@ namespace Illuminate\Queue\Console;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Symfony\Component\Console\Attribute\AsCommand;
 
-#[AsCommand(name: 'queue:table')]
 class TableCommand extends Command
 {
     /**
@@ -16,6 +14,15 @@ class TableCommand extends Command
      * @var string
      */
     protected $name = 'queue:table';
+
+    /**
+     * The name of the console command.
+     *
+     * This name is used to identify the command during lazy loading.
+     *
+     * @var string|null
+     */
+    protected static $defaultName = 'queue:table';
 
     /**
      * The console command description.
@@ -33,8 +40,6 @@ class TableCommand extends Command
 
     /**
      * @var \Illuminate\Support\Composer
-     *
-     * @deprecated Will be removed in a future Laravel version.
      */
     protected $composer;
 
@@ -66,7 +71,9 @@ class TableCommand extends Command
             $this->createBaseMigration($table), $table
         );
 
-        $this->components->info('Migration created successfully.');
+        $this->info('Migration created successfully!');
+
+        $this->composer->dumpAutoloads();
     }
 
     /**

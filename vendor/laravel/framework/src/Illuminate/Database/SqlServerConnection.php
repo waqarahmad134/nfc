@@ -27,7 +27,7 @@ class SqlServerConnection extends Connection
     {
         for ($a = 1; $a <= $attempts; $a++) {
             if ($this->getDriverName() === 'sqlsrv') {
-                return parent::transaction($callback, $attempts);
+                return parent::transaction($callback);
             }
 
             $this->getPdo()->exec('BEGIN TRAN');
@@ -55,28 +55,13 @@ class SqlServerConnection extends Connection
     }
 
     /**
-     * Escape a binary value for safe SQL embedding.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    protected function escapeBinary($value)
-    {
-        $hex = bin2hex($value);
-
-        return "0x{$hex}";
-    }
-
-    /**
      * Get the default query grammar instance.
      *
      * @return \Illuminate\Database\Query\Grammars\SqlServerGrammar
      */
     protected function getDefaultQueryGrammar()
     {
-        ($grammar = new QueryGrammar)->setConnection($this);
-
-        return $this->withTablePrefix($grammar);
+        return $this->withTablePrefix(new QueryGrammar);
     }
 
     /**
@@ -100,9 +85,7 @@ class SqlServerConnection extends Connection
      */
     protected function getDefaultSchemaGrammar()
     {
-        ($grammar = new SchemaGrammar)->setConnection($this);
-
-        return $this->withTablePrefix($grammar);
+        return $this->withTablePrefix(new SchemaGrammar);
     }
 
     /**

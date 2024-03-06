@@ -1,0 +1,317 @@
+[07-Mar-2022 04:49:46 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[07-Mar-2022 04:50:01 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 10:01:36 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 10:02:27 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 10:06:51 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 12:08:39 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 12:21:56 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 12:28:49 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[10-Mar-2022 12:30:33 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[11-Mar-2022 05:00:18 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[11-Mar-2022 05:00:19 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[11-Mar-2022 05:00:29 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[11-Mar-2022 07:17:06 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[11-Mar-2022 07:18:15 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[11-Mar-2022 07:20:12 UTC] PHP Warning:  Missing arginfo for clos_ssa_test() in Unknown on line 0
+[02-Feb-2023 12:25:56 Asia/Karachi] PHP Fatal error:  Uncaught ReflectionException: Class "view" does not exist in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#17 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#18 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#19 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:879
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#17 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#18 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[02-Feb-2023 12:27:11 Asia/Karachi] PHP Fatal error:  Uncaught ReflectionException: Class "view" does not exist in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#17 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#18 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#19 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:879
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#17 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#18 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[02-Feb-2023 12:28:57 Asia/Karachi] PHP Fatal error:  Uncaught ReflectionException: Class "view" does not exist in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#17 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#18 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#19 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:879
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#17 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#18 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[07-Feb-2023 14:15:21 Asia/Karachi] PHP Fatal error:  Uncaught ReflectionException: Class "view" does not exist in /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct()
+#1 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#2 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#4 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#6 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#7 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#8 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#10 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#11 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#12 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#13 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#15 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#16 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#17 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#18 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#19 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:879
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#1 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#2 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#4 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#6 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#7 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#8 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#9 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#10 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#11 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#12 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#13 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#15 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#16 /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#17 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#18 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[07-Feb-2023 14:27:17 Asia/Karachi] PHP Fatal error:  Uncaught ReflectionException: Class "view" does not exist in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#17 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#18 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#19 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php:879
+Stack trace:
+#0 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build()
+#1 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(855): Illuminate\Container\Container->resolve()
+#2 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve()
+#3 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(840): Illuminate\Container\Container->make()
+#4 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php(1417): Illuminate\Foundation\Application->make()
+#5 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(222): Illuminate\Container\Container->offsetGet()
+#6 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(193): Illuminate\Support\Facades\Facade::resolveFacadeInstance()
+#7 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(331): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#8 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(18): Illuminate\Support\Facades\Facade::__callStatic()
+#9 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(603): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#10 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(584): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#11 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(515): Illuminate\Foundation\Exceptions\Handler->renderHttpException()
+#12 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(421): Illuminate\Foundation\Exceptions\Handler->prepareResponse()
+#13 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(341): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse()
+#14 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(193): Illuminate\Foundation\Exceptions\Handler->render()
+#15 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(170): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#16 /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(228): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#17 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#18 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/admin/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[07-Feb-2023 09:30:52 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[07-Feb-2023 09:30:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[07-Feb-2023 09:31:48 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[07-Feb-2023 09:31:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan:20
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[07-Feb-2023 09:33:27 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[07-Feb-2023 09:33:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan:20
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[07-Feb-2023 09:34:46 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[07-Feb-2023 09:34:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan:20
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[07-Feb-2023 09:34:59 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[07-Feb-2023 09:34:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[17-Feb-2023 13:09:44 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[17-Feb-2023 13:09:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:51:47 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:51:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:53:17 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:53:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:53:32 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:53:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 07:53:58 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[20-Mar-2023 07:53:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan:20
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[20-Mar-2023 07:54:25 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[20-Mar-2023 07:54:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan:20
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/artisan on line 20
+[20-Mar-2023 08:11:41 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:44 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:47 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:51 UTC] PHP Warning:  require_once(/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php): Failed to open stream: No such file or directory in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[20-Mar-2023 08:11:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/bilawale/antrak.zeeshannawaz.com/front/admin/bootstrap/app.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/bilawale/antrak.zeeshannawaz.com/front/admin/index.php on line 47
+[03-May-2023 12:34:25 Asia/Karachi] PHP Fatal error:  Cannot redeclare App\Http\Controllers\PaymentHistory::pending_payment_accept() in /home/bilawale/antrak.zeeshannawaz.com/front/admin/app/Http/Controllers/PaymentHistory.php on line 58
+[03-May-2023 12:34:38 Asia/Karachi] PHP Fatal error:  Cannot redeclare App\Http\Controllers\PaymentHistory::pending_payment_accept() in /home/bilawale/antrak.zeeshannawaz.com/front/admin/app/Http/Controllers/PaymentHistory.php on line 58

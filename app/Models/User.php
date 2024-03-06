@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -19,27 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'company_name',
-        'position',
-        'website',
-        'mobile_number',
-        'telephone_number',
-        'twitter_url',
-        'insta_url',
-        'snapchat_url',
-        'linkedin_url',
-        'fb_url',
-        'address',
-        'employee_level',
+        'name',
         'email',
         'password',
-        'role',
-        'profile_pic',
-        'cover_pic',
-        'created_by',
-        'status',
     ];
 
     /**
@@ -59,6 +40,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
 }

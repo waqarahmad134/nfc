@@ -6,7 +6,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Env;
 use Illuminate\Support\HigherOrderTapProxy;
 use Illuminate\Support\Optional;
-use Illuminate\Support\Sleep;
 use Illuminate\Support\Str;
 
 if (! function_exists('append_config')) {
@@ -103,7 +102,7 @@ if (! function_exists('e')) {
     /**
      * Encode HTML special characters in a string.
      *
-     * @param  \Illuminate\Contracts\Support\DeferringDisplayableValue|\Illuminate\Contracts\Support\Htmlable|\BackedEnum|string|null  $value
+     * @param  \Illuminate\Contracts\Support\DeferringDisplayableValue|\Illuminate\Contracts\Support\Htmlable|string|null  $value
      * @param  bool  $doubleEncode
      * @return string
      */
@@ -117,11 +116,7 @@ if (! function_exists('e')) {
             return $value->toHtml();
         }
 
-        if ($value instanceof BackedEnum) {
-            $value = $value->value;
-        }
-
-        return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8', $doubleEncode);
+        return htmlspecialchars($value ?? '', ENT_QUOTES, 'UTF-8', $doubleEncode);
     }
 }
 
@@ -209,7 +204,7 @@ if (! function_exists('preg_replace_array')) {
     function preg_replace_array($pattern, array $replacements, $subject)
     {
         return preg_replace_callback($pattern, function () use (&$replacements) {
-            foreach ($replacements as $value) {
+            foreach ($replacements as $key => $value) {
                 return array_shift($replacements);
             }
         }, $subject);
@@ -254,7 +249,7 @@ if (! function_exists('retry')) {
             $sleepMilliseconds = $backoff[$attempts - 1] ?? $sleepMilliseconds;
 
             if ($sleepMilliseconds) {
-                Sleep::usleep(value($sleepMilliseconds, $attempts, $e) * 1000);
+                usleep(value($sleepMilliseconds, $attempts) * 1000);
             }
 
             goto beginning;
@@ -358,7 +353,7 @@ if (! function_exists('trait_uses_recursive')) {
     /**
      * Returns all traits used by a trait and its traits.
      *
-     * @param  object|string  $trait
+     * @param  string  $trait
      * @return array
      */
     function trait_uses_recursive($trait)
@@ -377,14 +372,10 @@ if (! function_exists('transform')) {
     /**
      * Transform the given value if it is present.
      *
-     * @template TValue of mixed
-     * @template TReturn of mixed
-     * @template TDefault of mixed
-     *
-     * @param  TValue  $value
-     * @param  callable(TValue): TReturn  $callback
-     * @param  TDefault|callable(TValue): TDefault|null  $default
-     * @return ($value is empty ? ($default is null ? null : TDefault) : TReturn)
+     * @param  mixed  $value
+     * @param  callable  $callback
+     * @param  mixed  $default
+     * @return mixed|null
      */
     function transform($value, callable $callback, $default = null)
     {
@@ -417,11 +408,10 @@ if (! function_exists('with')) {
      * Return the given value, optionally passed through the given callback.
      *
      * @template TValue
-     * @template TReturn
      *
      * @param  TValue  $value
-     * @param  (callable(TValue): (TReturn))|null  $callback
-     * @return ($callback is null ? TValue : TReturn)
+     * @param  (callable(TValue): TValue)|null  $callback
+     * @return TValue
      */
     function with($value, callable $callback = null)
     {

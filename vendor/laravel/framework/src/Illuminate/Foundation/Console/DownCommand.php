@@ -7,10 +7,8 @@ use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Events\MaintenanceModeEnabled;
 use Illuminate\Foundation\Exceptions\RegisterErrorViewPaths;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Throwable;
 
-#[AsCommand(name: 'down')]
 class DownCommand extends Command
 {
     /**
@@ -24,6 +22,15 @@ class DownCommand extends Command
                                  {--refresh= : The number of seconds after which the browser may refresh}
                                  {--secret= : The secret phrase that may be used to bypass maintenance mode}
                                  {--status=503 : The status code that should be used when returning the maintenance mode response}';
+
+    /**
+     * The name of the console command.
+     *
+     * This name is used to identify the command during lazy loading.
+     *
+     * @var string|null
+     */
+    protected static $defaultName = 'down';
 
     /**
      * The console command description.
@@ -41,7 +48,7 @@ class DownCommand extends Command
     {
         try {
             if ($this->laravel->maintenanceMode()->active()) {
-                $this->components->info('Application is already down.');
+                $this->comment('Application is already down.');
 
                 return 0;
             }
@@ -53,14 +60,13 @@ class DownCommand extends Command
                 file_get_contents(__DIR__.'/stubs/maintenance-mode.stub')
             );
 
-            $this->laravel->get('events')->dispatch(new MaintenanceModeEnabled());
+            $this->laravel->get('events')->dispatch(MaintenanceModeEnabled::class);
 
-            $this->components->info('Application is now in maintenance mode.');
+            $this->comment('Application is now in maintenance mode.');
         } catch (Exception $e) {
-            $this->components->error(sprintf(
-                'Failed to enter maintenance mode: %s.',
-                $e->getMessage(),
-            ));
+            $this->error('Failed to enter maintenance mode.');
+
+            $this->error($e->getMessage());
 
             return 1;
         }
@@ -93,7 +99,7 @@ class DownCommand extends Command
     {
         try {
             return $this->laravel->make(PreventRequestsDuringMaintenance::class)->getExcludedPaths();
-        } catch (Throwable) {
+        } catch (Throwable $e) {
             return [];
         }
     }

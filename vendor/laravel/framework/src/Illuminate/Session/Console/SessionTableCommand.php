@@ -5,9 +5,7 @@ namespace Illuminate\Session\Console;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Symfony\Component\Console\Attribute\AsCommand;
 
-#[AsCommand(name: 'session:table')]
 class SessionTableCommand extends Command
 {
     /**
@@ -16,6 +14,15 @@ class SessionTableCommand extends Command
      * @var string
      */
     protected $name = 'session:table';
+
+    /**
+     * The name of the console command.
+     *
+     * This name is used to identify the command during lazy loading.
+     *
+     * @var string|null
+     */
+    protected static $defaultName = 'session:table';
 
     /**
      * The console command description.
@@ -33,8 +40,6 @@ class SessionTableCommand extends Command
 
     /**
      * @var \Illuminate\Support\Composer
-     *
-     * @deprecated Will be removed in a future Laravel version.
      */
     protected $composer;
 
@@ -64,7 +69,9 @@ class SessionTableCommand extends Command
 
         $this->files->put($fullPath, $this->files->get(__DIR__.'/stubs/database.stub'));
 
-        $this->components->info('Migration created successfully.');
+        $this->info('Migration created successfully!');
+
+        $this->composer->dumpAutoloads();
     }
 
     /**
